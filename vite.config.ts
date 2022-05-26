@@ -12,6 +12,19 @@ export default defineConfig({
       '~/': `${path.resolve(__dirname, 'src')}/`,
     },
   },
+  server: {
+    port: 3000,
+    proxy: {
+      "/devServer": {
+        target: "http://8.136.112.243:8000",
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/devServer/, '')
+      }
+    },
+    fs: {
+      strict: false
+    }
+  },
   plugins: [
     Vue(),
     AutoImport({

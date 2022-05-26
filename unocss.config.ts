@@ -2,6 +2,7 @@ import {
   defineConfig,
   presetAttributify,
   presetUno,
+  presetIcons
 } from 'unocss'
 
 export default defineConfig({
@@ -14,6 +15,7 @@ export default defineConfig({
   },
   presets: [
     presetUno(),
+    presetIcons(),
     presetAttributify(),
   ],
 })

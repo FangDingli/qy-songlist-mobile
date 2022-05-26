@@ -6,8 +6,13 @@ import '@vue/runtime-core'
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     Ripple: typeof import('@varlet/ui')['_RippleComponent']
-    VarButton: typeof import('@varlet/ui')['_ButtonComponent']
+    VarChip: typeof import('@varlet/ui')['_ChipComponent']
     VarInput: typeof import('@varlet/ui')['_InputComponent']
+    VarPopup: typeof import('@varlet/ui')['_PopupComponent']
+    VarPullRefresh: typeof import('@varlet/ui')['_PullRefreshComponent']
+    VarRadio: typeof import('@varlet/ui')['_RadioComponent']
+    VarRadioGroup: typeof import('@varlet/ui')['_RadioGroupComponent']
+    VarSpace: typeof import('@varlet/ui')['_SpaceComponent']
     VarStyleProvider: typeof import('@varlet/ui')['_StyleProviderComponent']
   }
 }

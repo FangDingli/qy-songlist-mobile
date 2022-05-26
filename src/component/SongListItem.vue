@@ -1,9 +1,14 @@
 <template>
-  <div class="h-70px flex justify-between relative song_info_container px-10px" v-ripple>
+  <div
+    class="h-70px flex justify-between relative song_info_container px-10px"
+    v-if="!props.songInfo.isNull"
+    v-ripple
+    @click="emit('itemClick', props.songInfo)"
+  >
     <div class="w-50% flex flex-col min-w-0 justify-center">
       <div class="h-50% flex items-center text-14px">
         <div class="w-100% truncate">
-          {{ props.songInfo.original_name }}
+          {{ props.songInfo.displayName }}
         </div>
       </div>
       <div class="h-50% flex items-center text-12px text-gray-500/80">
@@ -19,13 +24,20 @@
       </div>
     </div>
   </div>
+  <div v-if="props.songInfo.isNull" text="center gray-800">暂无数据</div>
 </template>
 
 <script lang="ts" setup>
-const props = defineProps<{ songInfo: any }>()
+import type { ISongInfo } from '../types'
+const props = defineProps<{ songInfo: ISongInfo }>()
+
+const emit = defineEmits(['itemClick'])
 </script>
 
 <style>
+.song_info_container {
+  background-color: var(--color-body);
+}
 .song_info_container:after {
   content: ' ';
   position: absolute;
